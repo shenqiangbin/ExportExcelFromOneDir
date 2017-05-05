@@ -14,5 +14,36 @@ namespace ExportExcelFromOneDir
         {
             InitializeComponent();
         }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            var dialogResult = folderBrowserDialog.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                textBoxSelectPath.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxSelectPath.Text))
+            {
+                MessageBox.Show("请选择文件夹");
+                return;
+            }
+                
+            try
+            {
+                btnExport.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                btnExport.Enabled = true;
+            }
+        }
     }
 }
