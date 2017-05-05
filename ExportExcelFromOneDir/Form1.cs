@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ExportExcelFromOneDir.Lib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ExportExcelFromOneDir
@@ -31,19 +33,41 @@ namespace ExportExcelFromOneDir
                 MessageBox.Show("请选择文件夹");
                 return;
             }
-                
-            try
+            new Thread(() =>
             {
-                btnExport.Enabled = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                btnExport.Enabled = true;
-            }
+                try
+                {
+                    btnExport.Enabled = false;
+                    btnExport.Text = "导出中...";
+
+
+                    DirHelper dirHelper = new DirHelper(textBoxSelectPath.Text);
+                    List<string> fileNames = dirHelper.GetFileNames();
+                    //MessageBox.Show(string.Join(",", fileNames.ToArray()));
+
+                    new ExcelHelper("所有文件名", fileNames, 1).ExportEXCEL();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (btnExport.InvokeRequired)
+                    {
+                        btnExport.Invoke(new Action<string>((m) =>
+                        {
+                            btnExport.Enabled = true;
+                            btnExport.Text = "开始导出";
+                        }), "");
+                    }
+                    else
+                    {
+                        btnExport.Enabled = true;
+                        btnExport.Text = "开始导出";
+                    }
+                }
+            }).Start();
         }
     }
 }
