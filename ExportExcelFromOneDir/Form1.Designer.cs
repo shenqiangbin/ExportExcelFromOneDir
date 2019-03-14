@@ -82,9 +82,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(33, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(425, 12);
+            this.label2.Size = new System.Drawing.Size(455, 12);
             this.label2.TabIndex = 4;
-            this.label2.Text = "说明 ：导出指定文件夹下的所有文件名字（word，excel，ppt）到EXCEL表格中";
+            this.label2.Text = "说明 ：导出指定文件夹下的所有文件名字（word，excel，ppt，pdf）到EXCEL表格中";
             // 
             // statusStrip1
             // 

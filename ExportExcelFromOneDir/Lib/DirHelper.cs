@@ -13,7 +13,7 @@ namespace ExportExcelFromOneDir.Lib
         public DirHelper(string dirPath)
         {
             _dirPath = dirPath;
-            _extensions.AddRange(new string[] { ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx" });
+            _extensions.AddRange(new string[] { ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",".pdf" });
         }
 
         public List<string> GetFileNames()
