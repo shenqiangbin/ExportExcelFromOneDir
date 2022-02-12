@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lbl_currentFile = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnExport.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnExport.Location = new System.Drawing.Point(29, 83);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(465, 39);
@@ -90,23 +92,40 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 130);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 211);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(534, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(549, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(110, 17);
-            this.toolStripStatusLabel1.Text = "QQ：1969858717";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(269, 17);
+            this.toolStripStatusLabel1.Text = "如有问题，请联系 QQ：1969858717（Turbo）";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(29, 145);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(465, 21);
+            this.progressBar.TabIndex = 6;
+            // 
+            // lbl_currentFile
+            // 
+            this.lbl_currentFile.AutoSize = true;
+            this.lbl_currentFile.Location = new System.Drawing.Point(27, 175);
+            this.lbl_currentFile.Name = "lbl_currentFile";
+            this.lbl_currentFile.Size = new System.Drawing.Size(0, 12);
+            this.lbl_currentFile.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 152);
+            this.ClientSize = new System.Drawing.Size(549, 233);
+            this.Controls.Add(this.lbl_currentFile);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -135,6 +154,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lbl_currentFile;
     }
 }
 

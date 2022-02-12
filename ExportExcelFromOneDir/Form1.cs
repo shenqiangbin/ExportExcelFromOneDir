@@ -26,6 +26,35 @@ namespace ExportExcelFromOneDir
             }
         }
 
+        public void showMsg(string currentFile, int progressBarVal)
+        {
+            if (lbl_currentFile.InvokeRequired)
+            {
+                lbl_currentFile.Invoke(new Action<string>((m) =>
+                {
+                    lbl_currentFile.Text = currentFile;
+                }), "");
+            }
+            else
+            {
+                lbl_currentFile.Text = currentFile;
+            }
+
+            if (progressBar.InvokeRequired)
+            {
+                progressBar.Invoke(new Action<string>((m) =>
+                {
+                    progressBar.Value = progressBarVal;
+                }), "");
+            }
+            else
+            {
+                progressBar.Value = progressBarVal;
+            }
+      
+                    
+        }
+
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxSelectPath.Text))
@@ -37,12 +66,24 @@ namespace ExportExcelFromOneDir
             {
                 try
                 {
-                    btnExport.Enabled = false;
-                    btnExport.Text = "导出中...";
+
+                    if (btnExport.InvokeRequired)
+                    {
+                        btnExport.Invoke(new Action<string>((m) =>
+                        {
+                            btnExport.Enabled = true;
+                            btnExport.Text = "导出中...";
+                        }), "");
+                    }
+                    else
+                    {
+                        btnExport.Enabled = true;
+                        btnExport.Text = "导出中...";
+                    }
 
 
                     DirHelper dirHelper = new DirHelper(textBoxSelectPath.Text);
-                    List<string> fileNames = dirHelper.GetFileNames();
+                    List<string> fileNames = dirHelper.GetFileNames(showMsg);
                     //MessageBox.Show(string.Join(",", fileNames.ToArray()));
 
                     new ExcelHelper("所有文件名", fileNames, 1).ExportEXCEL();
