@@ -24,7 +24,7 @@ namespace ExportExcelFromOneDir.Lib
 
             //DirectoryInfo dir = new DirectoryInfo(_dirPath);
             //FileInfo[] files = dir.GetFiles("*.*", SearchOption.AllDirectories);
-            List<FileInfo> files = GetFiles(_dirPath, "*.*");
+            List<FileInfo> files = GetFiles(_dirPath, "*.*", processHandler);
             int i = 1;
             int total = files.Count;
             foreach (var file in files)
@@ -35,7 +35,7 @@ namespace ExportExcelFromOneDir.Lib
                 }
 
                 int processVal = (int)(((double)i / total) * 100);
-                string currentFile = string.Format("({0}/{1}){2}", i, total, file.Name);
+                string currentFile = string.Format("处理文件中：({0}/{1}){2}", i, total, file.Name);
                 processHandler(currentFile, processVal);
                 i++;
 
@@ -44,16 +44,18 @@ namespace ExportExcelFromOneDir.Lib
             return fileNames;
         }
 
-        private List<FileInfo> GetFiles(string path, string pattern)
+        private List<FileInfo> GetFiles(string path, string pattern, Process_EventHandler processHandler)
         {
             var files = new List<FileInfo>();
 
             try
             {
+                processHandler("获取文件中:"+ path, 10);
+
                 DirectoryInfo dir = new DirectoryInfo(path);
                 files.AddRange(dir.GetFiles(pattern, SearchOption.TopDirectoryOnly));
                 foreach (var directory in Directory.GetDirectories(path))
-                    files.AddRange(GetFiles(directory, pattern));
+                    files.AddRange(GetFiles(directory, pattern, processHandler));
             }
             catch (UnauthorizedAccessException) { }
 

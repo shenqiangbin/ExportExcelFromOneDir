@@ -71,7 +71,7 @@ namespace ExportExcelFromOneDir
                     {
                         btnExport.Invoke(new Action<string>((m) =>
                         {
-                            btnExport.Enabled = true;
+                            btnExport.Enabled = false;
                             btnExport.Text = "导出中...";
                         }), "");
                     }
