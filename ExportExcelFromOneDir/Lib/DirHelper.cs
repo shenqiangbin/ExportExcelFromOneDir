@@ -24,18 +24,21 @@ namespace ExportExcelFromOneDir.Lib
 
             //DirectoryInfo dir = new DirectoryInfo(_dirPath);
             //FileInfo[] files = dir.GetFiles("*.*", SearchOption.AllDirectories);
-            List<FileInfo> files = GetFiles(_dirPath, "*.*");
+            //List<FileInfo> files = GetFiles(_dirPath, "*.*");
+            List<string> files = GetFilesStr(_dirPath, "*.*");
+            
             int i = 1;
             int total = files.Count;
             foreach (var file in files)
             {
-                if (_extensions.Contains(file.Extension.ToLower()))
-                {
-                    fileNames.Add(file.FullName);
-                }
+                //if (_extensions.Contains(file.Extension.ToLower()))
+                //{
+                //    fileNames.Add(file.FullName);
+                //}
+                fileNames.Add(file);
 
                 int processVal = (int)(((double)i / total) * 100);
-                string currentFile = string.Format("({0}/{1}){2}", i, total, file.Name);
+                string currentFile = string.Format("({0}/{1}){2}", i, total, file);
                 processHandler(currentFile, processVal);
                 i++;
 
@@ -47,13 +50,28 @@ namespace ExportExcelFromOneDir.Lib
         private List<FileInfo> GetFiles(string path, string pattern)
         {
             var files = new List<FileInfo>();
-
             try
             {
                 DirectoryInfo dir = new DirectoryInfo(path);
                 files.AddRange(dir.GetFiles(pattern, SearchOption.TopDirectoryOnly));
+                files.AddRange(dir.GetFiles(pattern, SearchOption.TopDirectoryOnly));
                 foreach (var directory in Directory.GetDirectories(path))
                     files.AddRange(GetFiles(directory, pattern));
+            }
+            catch (UnauthorizedAccessException) { }
+
+            return files;
+        }
+
+        private List<string> GetFilesStr(string path, string pattern)
+        {
+            var files = new List<string>();
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(path);
+                files.Add(path + ";" + dir.GetFiles(pattern, SearchOption.TopDirectoryOnly).Length);
+                foreach (var directory in Directory.GetDirectories(path))
+                    files.AddRange(GetFilesStr(directory, pattern));
             }
             catch (UnauthorizedAccessException) { }
 
