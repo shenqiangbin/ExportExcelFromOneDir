@@ -110,5 +110,10 @@ namespace ExportExcelFromOneDir
                 }
             }).Start();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://support.qq.com/products/449283/");
+        }
     }
 }
