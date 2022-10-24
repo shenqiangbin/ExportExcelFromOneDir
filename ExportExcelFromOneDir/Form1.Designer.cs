@@ -101,8 +101,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(269, 17);
-            this.toolStripStatusLabel1.Text = "如有问题，请联系 QQ：1969858717（Turbo）";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(351, 17);
+            this.toolStripStatusLabel1.Text = "作者：sqber，如有问题，请联系 QQ：1969858717（Turbo）";
             // 
             // progressBar
             // 
