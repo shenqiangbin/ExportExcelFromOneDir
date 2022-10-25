@@ -106,8 +106,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lib\CopDirHelper.cs" />
     <Compile Include="Lib\DirHelper.cs" />
+    <Compile Include="Lib\ExcelData.cs" />
     <Compile Include="Lib\ExcelHelper.cs" />
+    <Compile Include="Lib\ReadExcelHelper.cs" />
+    <Compile Include="model\NewFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
