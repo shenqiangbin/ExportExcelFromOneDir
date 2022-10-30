@@ -132,7 +132,7 @@ namespace ExportExcelFromOneDir.Lib
                 if (rows[2].ToString() == dirName)
                 {
                     string oldfile = rows[3].ToString().Trim();
-                    if (fileName.Contains(oldfile))
+                    if (!string.IsNullOrEmpty(oldfile) && fileName.Contains(oldfile))
                     {
                         string newFileName = fileName.Replace(oldfile, rows[1].ToString().Trim());
                         string newPath = rows[0].ToString().Trim();
