@@ -94,17 +94,17 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 211);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 225);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(549, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(554, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(351, 17);
-            this.toolStripStatusLabel1.Text = "作者：sqber，如有问题，请联系 QQ：1969858717（Turbo）";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(346, 17);
+            this.toolStripStatusLabel1.Text = "作者：Turbo，如有问题，请加群 QQ：457696230（小工具）";
             // 
             // progressBar
             // 
@@ -126,26 +126,23 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(27, 187);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(0, 12);
             this.label3.TabIndex = 8;
-            this.label3.Text = "反馈地址：";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(98, 187);
+            this.linkLabel1.Location = new System.Drawing.Point(99, 210);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(239, 12);
+            this.linkLabel1.Size = new System.Drawing.Size(0, 12);
             this.linkLabel1.TabIndex = 9;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://support.qq.com/products/449283/";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 233);
+            this.ClientSize = new System.Drawing.Size(554, 247);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_currentFile);
